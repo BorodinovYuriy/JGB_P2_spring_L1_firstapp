@@ -1,5 +1,4 @@
 package ru.geekbrains.servlet;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.geekbrains.src.Product_getProduct_test;
