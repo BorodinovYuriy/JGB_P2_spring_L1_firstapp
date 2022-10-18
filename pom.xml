@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ru.geekbrains</groupId>
+  <artifactId>firstapp</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.source>18</maven.compiler.source>
+    <maven.compiler.target>18</maven.compiler.target>
+  </properties>
+  <name>firstapp Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <!--зависимости-->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!--добавляем сервлеты-->
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <!--полная реализация Servlet API будет предоставлена сервером
+      приложений на котором мы будем развертывать наше приложение (scope)-->
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <!--логирование-->
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.3</version>
+      <!--Scope тут тоже provided, так как
+      управлением логами приложения также занимается сервер приложений!!!-->
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+ <!--сборка-->
+  <build>
+    <finalName>firstapp</finalName>
+    <plugins>
+      <plugin>
+        <!--добавляем плагин, что бы понимал wildfly-->
+        <groupId>org.wildfly.plugins</groupId>
+        <artifactId>wildfly-maven-plugin</artifactId>
+        <version>2.0.1.Final</version>
+      </plugin>
+      <plugin>
+       <!-- решаем ошибку с ненахождением настроек по умолчанию-->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
