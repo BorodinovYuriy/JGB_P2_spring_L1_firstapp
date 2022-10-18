@@ -1,5 +1,6 @@
 package ru.geekbrains.src;
 
+
 public class Product {
 
     private int id;
